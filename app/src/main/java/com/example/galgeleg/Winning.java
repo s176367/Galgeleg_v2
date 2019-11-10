@@ -6,11 +6,8 @@ import androidx.preference.PreferenceManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -38,7 +35,7 @@ public class Winning extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_winning);
 
-        Button menu = findViewById(R.id.hovedmenu);
+        menu = findViewById(R.id.menu_i_Winning);
         menu.setOnClickListener(this);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -82,6 +79,7 @@ public class Winning extends AppCompatActivity implements View.OnClickListener {
         if(v==menu){
             Intent i = new Intent(this, Menu.class);
             startActivity(i);
+
 
         }
 

@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 public class spil extends AppCompatActivity implements View.OnClickListener {
     EditText gatfelt, navn;
+    ImageView galge;
     Button gatknap, tilbage, gem;
     TextView gattekst, brugtebogstaver, gætbar, antalforsøg;
     ImageView hang;
@@ -48,6 +49,8 @@ public class spil extends AppCompatActivity implements View.OnClickListener {
         navn = findViewById(R.id.navn);
         navn.getText();
         navn.setVisibility(View.INVISIBLE);
+
+        galge = findViewById(R.id.imageView);
 
         gatknap = findViewById(R.id.gat);
         gatknap.setOnClickListener(this);
@@ -100,6 +103,8 @@ public class spil extends AppCompatActivity implements View.OnClickListener {
                 gem.setVisibility(View.VISIBLE);
                 navn.setVisibility(View.VISIBLE);
                 gatfelt.setVisibility(View.INVISIBLE);
+                galge.setVisibility(View.INVISIBLE);
+
 
 
 
