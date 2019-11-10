@@ -24,7 +24,9 @@ public class Winning extends AppCompatActivity implements View.OnClickListener {
     int score;
     Boolean gemspil;
     String ranking = "";
-    Button menu;
+    Button menu, highscore;
+
+    Galgelogik logik = new Galgelogik();
 
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
@@ -37,6 +39,9 @@ public class Winning extends AppCompatActivity implements View.OnClickListener {
 
         menu = findViewById(R.id.menu_i_Winning);
         menu.setOnClickListener(this);
+
+        highscore = findViewById(R.id.highscore);
+        highscore.setOnClickListener(this);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         editor = sharedPreferences.edit();
@@ -79,8 +84,14 @@ public class Winning extends AppCompatActivity implements View.OnClickListener {
         if(v==menu){
             Intent i = new Intent(this, Menu.class);
             startActivity(i);
+        }
+        if (v==highscore){
+            Intent i = new Intent(this, Highscore.class);
+            i.putExtra("navn", navn);
+            i.putExtra("score", logik.getAntalForkerteBogstaver());
+            i.putExtra("gemspil", true);
 
-
+            startActivity(i);
         }
 
     }

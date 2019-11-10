@@ -25,11 +25,22 @@
         android:id="@+id/menu_i_Winning"
         android:layout_width="119dp"
         android:layout_height="73dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="144dp"
-        android:layout_marginRight="144dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
         android:text="Hovedmenu"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/antalforsøgInt" />
+
+    <Button
+        android:id="@+id/highscore"
+        android:layout_width="119dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="84dp"
+        android:text="Highscore"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/antalforsøgInt" />
 
     <TextView
@@ -48,7 +59,6 @@
         android:id="@+id/antalforsøgInt"
         android:layout_width="141dp"
         android:layout_height="63dp"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="132dp"
         android:layout_marginRight="132dp"
         android:gravity="center"

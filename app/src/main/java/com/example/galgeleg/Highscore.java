@@ -19,7 +19,7 @@ import java.util.List;
 public class Highscore extends AppCompatActivity implements View.OnClickListener {
     private TextView highTitel;
     private TextView highScores;
-    private Button resetHighscores;
+    private Button resetHighscores, menu;
     ArrayList<Spiller> spillerList;
     String navn;
     int score;
@@ -44,6 +44,8 @@ public class Highscore extends AppCompatActivity implements View.OnClickListener
         resetHighscores = findViewById(R.id.resetHigh);
         highTitel = findViewById(R.id.highTitel);
         highScores = findViewById(R.id.highscores);
+        menu = findViewById(R.id.menu);
+        menu.setOnClickListener(this);
 
         resetHighscores.setOnClickListener(this);
 
@@ -85,5 +87,9 @@ public class Highscore extends AppCompatActivity implements View.OnClickListener
     }
 
     public void onClick(View v) {
+        if(v==menu){
+            Intent i = new Intent(this, Menu.class);
+            startActivity(i);
+        }
     }
 }
