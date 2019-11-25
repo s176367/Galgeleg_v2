@@ -20,7 +20,7 @@ public class Loser extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loser);
 
-        Button menu = findViewById(R.id.menu);
+        menu = findViewById(R.id.menu);
         menu.setOnClickListener(this);
 
         TextView getOrdet = findViewById(R.id.getOrdet);

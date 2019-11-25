@@ -1,42 +1,39 @@
 package com.example.galgeleg;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 
-public class Menu extends AppCompatActivity implements View.OnClickListener {
-    Button regler, spil, highscore;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Indenspil extends AppCompatActivity implements View.OnClickListener {
+
     Galgelogik logik = new Galgelogik();
 
+    Button liste, randomOrd;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.valg_indenspil);
 
-        regler = findViewById(R.id.button2);
-        spil = findViewById(R.id.button);
+        liste = findViewById(R.id.listeknap);
+        liste.setOnClickListener(this);
 
-        regler.setOnClickListener(this);
-        spil.setOnClickListener(this);
-
-        highscore = findViewById(R.id.highscore);
-        highscore.setOnClickListener(this);
+        randomOrd = findViewById(R.id.randomordknap);
+        randomOrd.setOnClickListener(this);
 
 
     }
 
+
     @Override
     public void onClick(View v) {
-        if (v == spil) {
-            Intent indenspil = new Intent(this, Indenspil.class);
-            startActivity(indenspil);
+        if(v==randomOrd){
 
-            /**class Asynk2 extends AsyncTask {
+            class Asynk2 extends AsyncTask {
                 @Override
                 protected Object doInBackground(Object[] objects) {
                     try {
@@ -47,7 +44,6 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
                     return null;
                 }
                 protected void onProgressUpdate(Object... progress) {
-                    ring.setVisibility(View.VISIBLE);
                 }
 
                 @Override
@@ -59,16 +55,6 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
             }
             new Asynk2().execute();
 
-*/
-        }
-        if (v == regler) {
-            Intent i = new Intent(this, Regler.class);
-            startActivity(i);
-        }
-        if (v == highscore) {
-            Intent i = new Intent(this, Highscore.class);
-            startActivity(i);
         }
     }
-
 }

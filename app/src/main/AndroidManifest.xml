@@ -17,6 +17,7 @@
         <activity android:name=".Winning" />
         <activity android:name=".Regler" />
         <activity android:name=".Highscore" />
+        <activity android:name=".Indenspil"/>
         <activity android:name=".Menu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
