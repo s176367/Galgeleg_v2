@@ -84,7 +84,7 @@ public class Indenspil extends AppCompatActivity implements View.OnClickListener
                 @Override
                 protected void onPostExecute(Object o) {
                 Intent i = new Intent(getApplicationContext(), ValgvedListe.class);
-                i.putExtra("ordliste", listeord);
+                i.putExtra("ordliste", logik.muligeOrd);
                 startActivity(i);
                 }
             }new Asynk3().execute();

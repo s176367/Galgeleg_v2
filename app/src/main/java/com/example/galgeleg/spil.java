@@ -38,9 +38,19 @@ public class spil extends AppCompatActivity implements View.OnClickListener {
 
         Intent intent = getIntent();
 
+        logik.muligeOrd.clear();
 
-        logik.muligeOrd = intent.getStringArrayListExtra("ordliste");
+        if (intent.getStringArrayListExtra("ordliste")!=null){
+            logik.muligeOrd = intent.getStringArrayListExtra("ordliste");
+        }else{
+            String ordet = intent.getStringExtra("ord");
+            logik.muligeOrd.add(ordet);
+        }
+
+
         logik.nulstil();
+
+
         System.out.println(logik.muligeOrd);
         System.out.println(logik.getOrdet());
         gatfelt = findViewById(R.id.gatText);
@@ -73,6 +83,7 @@ public class spil extends AppCompatActivity implements View.OnClickListener {
 
         System.out.println(logik.getOrdet());
     }
+
 
     @Override
     public void onClick(View v) {

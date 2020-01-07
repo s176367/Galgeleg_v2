@@ -15,14 +15,14 @@
         android:layout_marginLeft="43dp"
         android:layout_marginTop="36dp"
         android:gravity="center"
-        android:text="Tillykke!! Du har vundet! Du  kan gemme din highscore for neden"
+        android:text="Tillykke!! Du har vundet! Du  kan gemme din highscore forneden"
         android:textSize="35dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/menu_i_Winning"
+        android:id="@+id/menu"
         android:layout_width="119dp"
         android:layout_height="73dp"
         android:layout_marginTop="84dp"

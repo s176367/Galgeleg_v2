@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="stateAlwaysHidden">
-        <activity android:name=".ValgvedListe"></activity>
+        <activity android:name=".highscoreList"></activity>
+        <activity android:name=".ValgvedListe" />
         <activity android:name=".Loser" />
         <activity android:name=".Winning" />
         <activity android:name=".Regler" />

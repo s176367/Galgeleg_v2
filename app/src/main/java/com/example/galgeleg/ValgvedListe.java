@@ -13,15 +13,20 @@ import android.widget.Toast;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class ValgvedListe extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     Galgelogik logik = new Galgelogik();
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_valgved_liste);
+
 
         Intent liste = getIntent();
 
@@ -40,6 +45,8 @@ public class ValgvedListe extends AppCompatActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View listView, int position, long id) {
         String valgtOrd = logik.muligeOrd.get(position);
 
-        Toast.makeText(this, "Valgte ord : "+valgtOrd, Toast.LENGTH_SHORT).show();
+        Intent spil = new Intent(getApplicationContext(), spil.class);
+        spil.putExtra("ord", valgtOrd);
+        startActivity(spil);
     }
 }

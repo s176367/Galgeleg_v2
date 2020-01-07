@@ -37,7 +37,7 @@ public class Winning extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_winning);
 
-        menu = findViewById(R.id.menu_i_Winning);
+        menu = findViewById(R.id.menu);
         menu.setOnClickListener(this);
 
         highscore = findViewById(R.id.highscore);
