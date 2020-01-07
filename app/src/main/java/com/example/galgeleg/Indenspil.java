@@ -9,9 +9,13 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class Indenspil extends AppCompatActivity implements View.OnClickListener {
 
     Galgelogik logik = new Galgelogik();
+
+    ArrayList listeord = new ArrayList();
 
     Button liste, randomOrd;
     @Override
@@ -55,6 +59,35 @@ public class Indenspil extends AppCompatActivity implements View.OnClickListener
             }
             new Asynk2().execute();
 
+        }
+        if(v==liste){
+            class Asynk3 extends AsyncTask {
+
+                @Override
+                protected Object doInBackground(Object[] objects) {
+                    try{
+                            logik.hentOrdFraDr();
+                            listeord.add(logik.muligeOrd);
+                    }
+
+                    catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return null;
+                }
+
+                @Override
+                protected void onProgressUpdate(Object[] values) {
+
+                }
+
+                @Override
+                protected void onPostExecute(Object o) {
+                Intent i = new Intent(getApplicationContext(), ValgvedListe.class);
+                i.putExtra("ordliste", listeord);
+                startActivity(i);
+                }
+            }new Asynk3().execute();
         }
     }
 }
