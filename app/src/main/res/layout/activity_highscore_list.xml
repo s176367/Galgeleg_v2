@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
     tools:context=".highscoreList">
 
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/underskrift">
 
-    <ImageView
-        android:id="@+id/billede"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        app:srcCompat="@drawable/forkert6" />
+    </androidx.recyclerview.widget.RecyclerView>
 
     <TextView
         android:id="@+id/Overskrift"
@@ -28,11 +30,12 @@
 
     <TextView
         android:id="@+id/underskrift"
+        android:layout_below="@id/Overskrift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
+        android:layout_toRightOf="@+id/billede"
         android:text="Her ses en liste af highscores"
         android:textColor="@color/cardview_light_background"
-        android:textSize="15sp"
-
-        />
-</LinearLayout>
+        android:textSize="15sp" />
+</RelativeLayout>
