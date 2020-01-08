@@ -4,16 +4,21 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.airbnb.lottie.LottieAnimationView;
 
 import java.util.ArrayList;
 
 public class Indenspil extends AppCompatActivity implements View.OnClickListener {
 
     Galgelogik logik = new Galgelogik();
+
+    LottieAnimationView loading;
 
     ArrayList listeord = new ArrayList();
 
@@ -29,6 +34,11 @@ public class Indenspil extends AppCompatActivity implements View.OnClickListener
         randomOrd = findViewById(R.id.randomordknap);
         randomOrd.setOnClickListener(this);
 
+        //lottie er her brugt for animation
+        //reference: https://lottiefiles.com/13453-loading
+        loading = findViewById(R.id.loading);
+        loading.setVisibility(View.INVISIBLE);
+
 
     }
 
@@ -36,7 +46,7 @@ public class Indenspil extends AppCompatActivity implements View.OnClickListener
     @Override
     public void onClick(View v) {
         if(v==randomOrd){
-
+            loading.setVisibility(View.VISIBLE);
             class Asynk2 extends AsyncTask {
                 @Override
                 protected Object doInBackground(Object[] objects) {
@@ -48,6 +58,7 @@ public class Indenspil extends AppCompatActivity implements View.OnClickListener
                     return null;
                 }
                 protected void onProgressUpdate(Object... progress) {
+
                 }
 
                 @Override
@@ -61,6 +72,8 @@ public class Indenspil extends AppCompatActivity implements View.OnClickListener
 
         }
         if(v==liste){
+
+            loading.setVisibility(View.VISIBLE);
             class Asynk3 extends AsyncTask {
 
                 @Override
@@ -78,7 +91,7 @@ public class Indenspil extends AppCompatActivity implements View.OnClickListener
 
                 @Override
                 protected void onProgressUpdate(Object[] values) {
-
+                    loading.setVisibility(View.VISIBLE);
                 }
 
                 @Override

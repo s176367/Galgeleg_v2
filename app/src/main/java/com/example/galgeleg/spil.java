@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -27,6 +29,8 @@ public class spil extends AppCompatActivity implements View.OnClickListener {
     TextView gattekst, brugtebogstaver, gætbar, antalforsøg;
     ImageView hang;
     ArrayList<String> score = new ArrayList<>();
+
+    LottieAnimationView rigtigt, forkert;
 
     Galgelogik logik = new Galgelogik();
 
@@ -82,6 +86,12 @@ public class spil extends AppCompatActivity implements View.OnClickListener {
         gætbar.setText(logik.getSynligtOrd());
 
         System.out.println(logik.getOrdet());
+
+        rigtigt = findViewById(R.id.thumbs_up);
+        rigtigt.setVisibility(View.INVISIBLE);
+
+        forkert = findViewById(R.id.thumbs_down);
+        forkert.setVisibility(View.INVISIBLE);
     }
 
 
@@ -129,8 +139,32 @@ public class spil extends AppCompatActivity implements View.OnClickListener {
         if (logik.erSidsteBogstavKorrekt()) {
             gætbar.setText(logik.getSynligtOrd());
             brugtebogstaver.setText(logik.getBrugteBogstaver().toString());
+            rigtigt.setVisibility(View.VISIBLE);
+            rigtigt.playAnimation();
+
+            class Asynctask1 extends AsyncTask {
+
+                @Override
+                protected Object doInBackground(Object[] objects) {
+                    try {
+                        Thread.sleep(1500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    return null;
+                }
+
+                @Override
+                protected void onPostExecute(Object o) {
+                    rigtigt.setVisibility(View.INVISIBLE);
+                }
+            } new Asynctask1().execute();
+
         } else {
             brugtebogstaver.setText(logik.getBrugteBogstaver().toString());
+            forkert.setVisibility(View.VISIBLE);
+            forkert.playAnimation();
+
             switch (logik.getAntalForkerteBogstaver()) {
                 case 0:
                     hang.setImageResource(R.drawable.galge);
@@ -167,6 +201,23 @@ public class spil extends AppCompatActivity implements View.OnClickListener {
 
 
             }
+            class Asynctask2 extends AsyncTask{
+
+                @Override
+                protected Object doInBackground(Object[] objects) {
+                    try {
+                        Thread.sleep(1500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }return null;
+                }
+
+                @Override
+                protected void onPostExecute(Object o) {
+                    forkert.setVisibility(View.INVISIBLE);
+                }
+            } new Asynctask2().execute();
+
         }
         gatfelt.setText(null);
 
