@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,6 +34,7 @@ public class HighscoreAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         TextView textViewNavn = holder.itemView.findViewById(R.id.highscoreName);
         TextView textViewScore = holder.itemView.findViewById(R.id.highscoreScore);
+        Button resetHighscore = holder.itemView.findViewById(R.id.resetHighscore);
 
         String scoreString = Integer.toString(spillerListe.get(position).getScore());
         textViewNavn.setText(spillerListe.get(position).getNavn());

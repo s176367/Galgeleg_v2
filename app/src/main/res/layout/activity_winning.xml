@@ -15,31 +15,19 @@
         android:layout_marginLeft="43dp"
         android:layout_marginTop="36dp"
         android:gravity="center"
-        android:text="Tillykke!! Du har vundet! Du  kan gemme din highscore forneden"
+        android:text="Tillykke!! Du har vundet! Du kan gå til highscores forneden"
         android:textSize="35dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/menu"
-        android:layout_width="119dp"
-        android:layout_height="73dp"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
-        android:text="Hovedmenu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/antalforsøgInt" />
-
-    <Button
         android:id="@+id/highscore"
         android:layout_width="119dp"
         android:layout_height="73dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="36dp"
         android:text="Highscore"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/antalforsøgInt" />
 

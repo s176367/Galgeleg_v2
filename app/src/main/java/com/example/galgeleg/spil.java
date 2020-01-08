@@ -2,9 +2,13 @@ package com.example.galgeleg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.view.View;
@@ -159,6 +163,14 @@ public class spil extends AppCompatActivity implements View.OnClickListener {
             forkert.setVisibility(View.VISIBLE);
             forkert.playAnimation();
 
+            //Vibration kode læst her: https://stackoverflow.com/questions/13950338/how-to-make-an-android-device-vibrate
+            Vibrator vi = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+                vi.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
+            }else {
+                vi.vibrate(500);
+            }
+
             switch (logik.getAntalForkerteBogstaver()) {
                 case 0:
                     hang.setImageResource(R.drawable.galge);
@@ -180,16 +192,11 @@ public class spil extends AppCompatActivity implements View.OnClickListener {
                     break;
                 case 6:
                     logik.erSpilletTabt();
-                    /*hang.setImageResource(R.drawable.forkert6);
-                    gatfelt.setText("Du tabte!");
-                    gattekst.setText("Spillet er slut");
-                    gatknap.setText("Nustil spillet");
-                    hang.setImageResource(R.drawable.spilslut);
-                    gattekst.setText("Tryk på tilbage for at komme til hovedmenuen");*/
                     Intent loser = new Intent(this, Loser.class);
                     loser.putExtra("ordet", logik.getOrdet());
                     startActivity(loser);
-                    //Intentputextra.getordet();
+
+
 
                     break;
 

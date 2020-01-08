@@ -37,9 +37,6 @@ public class Winning extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_winning);
 
-        menu = findViewById(R.id.menu);
-        menu.setOnClickListener(this);
-
         highscore = findViewById(R.id.highscore);
         highscore.setOnClickListener(this);
 
@@ -81,10 +78,6 @@ public class Winning extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if(v==menu){
-            Intent i = new Intent(this, Menu.class);
-            startActivity(i);
-        }
         if (v==highscore){
             Intent i = new Intent(this, Highscore.class);
             i.putExtra("navn", navn);

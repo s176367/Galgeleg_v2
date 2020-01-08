@@ -45,6 +45,9 @@ public class Highscore extends AppCompatActivity implements View.OnClickListener
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         editor = sharedPreferences.edit();
 
+        this.overridePendingTransition(0,0);
+
+
         /**resetHighscores = findViewById(R.id.resetHigh);
         highTitel = findViewById(R.id.highTitel);
         highScores = findViewById(R.id.highscores);
@@ -52,6 +55,9 @@ public class Highscore extends AppCompatActivity implements View.OnClickListener
         menu.setOnClickListener(this);
          resetHighscores.setOnClickListener(this);
          **/
+
+        resetHighscores = findViewById(R.id.resetHighscore);
+        resetHighscores.setOnClickListener(this);
 
 
         Gson gson = new Gson();
@@ -98,13 +104,24 @@ public class Highscore extends AppCompatActivity implements View.OnClickListener
 
     }
 
-
-
+    @Override
+    public void onBackPressed() {
+        Intent hovedmenu = new Intent(this, Menu.class);
+        startActivity(hovedmenu);
+    }
 
     public void onClick(View v) {
         if(v==menu){
             Intent i = new Intent(this, Menu.class);
             startActivity(i);
         }
+        if (v==resetHighscores){
+            sharedPreferences.edit().clear().commit();
+            Intent i = new Intent(this, Highscore.class);
+            finish();
+            i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(i);
+        }
+
     }
 }
